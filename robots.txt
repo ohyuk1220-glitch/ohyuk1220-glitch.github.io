@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ohyuk1220-glitch.github.io/sitemap.xml
