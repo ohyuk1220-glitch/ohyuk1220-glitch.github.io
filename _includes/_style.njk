@@ -113,6 +113,20 @@
     padding: 16px 20px; border-radius: 12px; margin: 24px 0;
   }
   .callout strong { color: #e0a06a; }
+  /* 이 날의 다른 소식 — 뉴스 리스트 */
+  .article-body ul { list-style: none; padding: 0; margin: 10px 0 20px; }
+  .article-body li {
+    padding: 12px 0; border-bottom: 1px solid var(--line);
+    font-size: 1rem; line-height: 1.55; color: var(--ink-soft);
+  }
+  .article-body li a {
+    color: var(--ink); font-weight: 700;
+    border-bottom: 2px solid var(--accent-soft); transition: border-color .15s;
+  }
+  .article-body li a:hover { border-bottom-color: var(--accent); }
+  .article-body p > strong:only-child {
+    display: inline-block; font-size: 1.05rem; margin: 14px 0 2px; color: var(--accent);
+  }
   /* 원문 링크 박스 */
   .source-link {
     display: inline-block; margin-top: 28px; font-size: 0.92rem; font-weight: 600;
