@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>과학 한 모금 — 매일의 과학을 한 모금씩</title>
+{% include "_style.njk" %}
+</head>
+<body>
+<header class="site-head hero">
+  <span class="brand-big">☕ 과학 한 모금</span>
+  <p class="tagline">매일의 과학을 한 모금씩</p>
+</header>
+
+<main class="toc-wrap">
+  <div class="toc-grid">
+    {%- for post in collections.post | reverse %}
+    <a class="toc-card" href="{{ post.url }}">
+      <span class="cat">{{ post.data.category }}</span>
+      <h2>{{ post.data.title }} {{ post.data.emoji }}</h2>
+      <p>{{ post.data.deck }}</p>
+      <time>{{ post.data.displayDate }}</time>
+    </a>
+    {%- endfor %}
+  </div>
+</main>
+
+<footer class="site-foot">
+  <span>과학 한 모금 · 전시실 뒷방</span>
+  <span>{{ collections.post | length }}편의 기사</span>
+</footer>
+</body>
+</html>

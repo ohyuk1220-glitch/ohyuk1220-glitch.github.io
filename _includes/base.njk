@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} · 과학 한 모금</title>
+{% include "_style.njk" %}
+</head>
+<body>
+<header class="site-head">
+  <a class="brand" href="/">☕ 과학 한 모금</a>
+</header>
+
+<main class="article-grid">
+  <div class="article-head">
+    <span class="cat">{{ category }}</span>
+    <h1>{{ title }} {{ emoji }}</h1>
+    <p class="deck">{{ deck }}</p>
+    <time>{{ displayDate }}</time>
+  </div>
+  <div class="article-body">
+    {{ content | safe }}
+  </div>
+  {% if source %}<a class="source-link" href="{{ source }}" target="_blank" rel="noopener">📄 원문 기사 보기 →</a>{% endif %}
+  <p class="byline-sign">☕ 과저씨가 한 모금으로 풀어드렸어요</p>
+</main>
+
+<footer class="site-foot">
+  <a href="/">← 전체 기사</a>
+  <span>과학 한 모금 · 전시실 뒷방</span>
+</footer>
+</body>
+</html>

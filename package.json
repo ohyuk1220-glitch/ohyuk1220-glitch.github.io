@@ -1,0 +1,13 @@
+{
+  "name": "gwahan-mozip-magazine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "과학 한 모금 웹 매거진 (11ty)",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
