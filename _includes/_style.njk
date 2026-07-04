@@ -34,6 +34,24 @@
   }
   .site-head .brand { font-weight: 800; font-size: 1.1rem; letter-spacing: -0.01em; }
 
+  /* 카테고리 네비 */
+  .cat-nav {
+    display: flex; gap: 4px; justify-content: center; flex-wrap: wrap;
+    padding: 0 24px; border-bottom: 1px solid var(--line); background: var(--paper-card);
+  }
+  .cat-nav a {
+    padding: 14px 22px; font-weight: 700; font-size: 0.95rem; color: var(--ink-soft);
+    border-bottom: 2px solid transparent; transition: color .15s, border-color .15s;
+  }
+  .cat-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* 준비중 랜딩 */
+  .coming { max-width: 600px; margin: 0 auto; padding: 96px 24px; text-align: center; }
+  .coming-emoji { font-size: 4rem; }
+  .coming-box h1 { font-family: var(--font-serif); font-weight: 900; font-size: 2rem; margin: 16px 0 14px; }
+  .coming-box p { color: var(--ink-soft); font-size: 1.1rem; line-height: 1.7; }
+  .coming-box a { display: inline-block; margin-top: 30px; color: var(--accent); font-weight: 600; }
+
   /* 홈 히어로 */
   .hero {
     flex-direction: column; gap: 8px; padding: 72px 24px 56px; border-bottom: 2px solid var(--ink);

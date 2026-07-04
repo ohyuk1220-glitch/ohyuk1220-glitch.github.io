@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} · 과학 한 모금</title>
+<meta name="description" content="{{ siteDescription }}">
+<link rel="icon" href="/assets/favicon.svg">
+{% include "seo.njk" %}
+{% include "_style.njk" %}
+</head>
+<body>
+<header class="site-head"><a class="brand" href="/">☕ 과학 한 모금</a></header>
+{% include "_nav.njk" %}
+
+<main class="coming">
+  <div class="coming-box">
+    <span class="coming-emoji">{{ emoji }}</span>
+    <h1>{{ title }}</h1>
+    <p>{{ msg }}</p>
+    <a href="/">← 뉴스레터 보러 가기</a>
+  </div>
+</main>
+
+<footer class="site-foot"><span>과학 한 모금 · 전시실 뒷방</span></footer>
+</body>
+</html>
