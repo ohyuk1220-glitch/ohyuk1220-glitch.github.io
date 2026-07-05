@@ -42,6 +42,16 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  // "이 날의 다른 소식" 섹션(h2부터 본문 끝까지)을 배경 박스로 감싸 메인과 구분
+  eleventyConfig.addTransform("wrapOtherNews", function (content) {
+    const outputPath = this.page.outputPath || "";
+    if (!outputPath.endsWith(".html")) return content;
+    return content.replace(
+      /(<h2[^>]*>[^<]*이 날의 다른 소식[\s\S]*?)(<\/div>)/,
+      '<div class="other-news">$1</div>$2'
+    );
+  });
+
   return {
     dir: {
       input: "content",

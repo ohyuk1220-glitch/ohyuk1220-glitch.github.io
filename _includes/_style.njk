@@ -178,4 +178,24 @@
 
   /* 피드백 링크 */
   .feedback-link { color: var(--accent); font-weight: 600; }
+
+  /* 이 날의 다른 소식 — 메인과 구분되는 별개 코너 (배경 박스 + 미니 카드) */
+  .other-news {
+    background: #f1ebdf; border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px 24px 18px; margin: 52px 0 12px;
+  }
+  .other-news h2 { border-top: none; padding-top: 0; margin-top: 0; font-size: 1.15rem; }
+  .other-news p > strong:only-child { color: var(--ink); font-size: 0.98rem; margin: 16px 0 4px; }
+  .other-news ul { margin: 8px 0 4px; }
+  .other-news li {
+    background: var(--paper-card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px 15px; margin: 8px 0; color: var(--ink);
+  }
+  .other-news li a { border-bottom: none; color: var(--ink); }
+  .other-news li a:hover { color: var(--accent); }
+  .nb {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    background: var(--accent-soft); color: var(--accent);
+    padding: 2px 9px; border-radius: 6px; margin-right: 7px; vertical-align: middle;
+  }
 </style>
