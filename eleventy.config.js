@@ -52,6 +52,13 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  // draft: true → 배포(build)에서 제외되어 공개 사이트에 안 뜸. 로컬 serve에선 보임.
+  eleventyConfig.addPreprocessor("drafts", "njk,md", function (data) {
+    if (data.draft === true && process.env.ELEVENTY_RUN_MODE !== "serve") {
+      return false;
+    }
+  });
+
   return {
     dir: {
       input: "content",
