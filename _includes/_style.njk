@@ -160,4 +160,22 @@
   @media (max-width: 560px) {
     .toc-grid { grid-template-columns: 1fr; gap: 20px; }
   }
+  /* 기사 상단 메타 (날짜 + 원문 링크) — 요약 근처로 */
+  .head-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+  .head-meta time { font-size: 0.85rem; color: var(--ink-soft); }
+  .head-meta .source-link { margin-top: 0; padding: 7px 15px; font-size: 0.85rem; }
+
+  /* 홈 카드 상단 (카테고리 + 날짜 크게) */
+  .card-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+  .card-top .cat { margin-bottom: 0; }
+  .card-top time { font-size: 1rem; font-weight: 800; color: var(--accent); }
+
+  /* 본문 용어 형광펜 (아래 콜아웃 설명과 시각 매치) */
+  .article-body mark {
+    background: linear-gradient(transparent 52%, var(--accent-soft) 52%);
+    color: inherit; font-weight: 700; padding: 0 2px;
+  }
+
+  /* 피드백 링크 */
+  .feedback-link { color: var(--accent); font-weight: 600; }
 </style>
