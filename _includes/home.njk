@@ -29,6 +29,27 @@
   </a>
   {%- endif %}
 
+  {%- set beyond = collections.deepdive | reverse | first %}
+  <section class="other-boards">
+    {%- if beyond %}
+    <a class="board-card" href="{{ beyond.url }}">
+      <span class="board-label">📝 기사 그 너머</span>
+      <h3>{{ beyond.data.title }}</h3>
+      <p>{{ beyond.data.deck }}</p>
+    </a>
+    {%- endif %}
+    <a class="board-card board-soon" href="/memo/">
+      <span class="board-label">✍️ 과저씨의 메모장</span>
+      <h3>곧 찾아옵니다</h3>
+      <p>AI·과학 뒷이야기·소식</p>
+    </a>
+    <a class="board-card board-soon" href="/world/">
+      <span class="board-label">🌍 실험실과 차트</span>
+      <h3>곧 찾아옵니다</h3>
+      <p>과학과 경제가 만나는 자리</p>
+    </a>
+  </section>
+
   {%- if posts.length > 1 %}
   <div class="post-list">
     {%- for post in posts %}

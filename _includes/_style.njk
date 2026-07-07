@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&display=swap">
 <style>
   :root {
-    --ink: #1e2620;
-    --ink-soft: #5a655d;
-    --paper: #f2f2ec;
-    --paper-card: #fbfbf7;
-    --accent: #2f6b4d;
-    --accent-soft: #dcebe1;
-    --line: #e2e5db;
+    --ink: #1c221e;
+    --ink-soft: #5b615c;
+    --paper: #f3f3f1;
+    --paper-card: #ffffff;
+    --accent: #23694a;
+    --accent-soft: #d8ebdd;
+    --line: #e4e5e1;
     --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
     --font-serif: "Noto Serif KR", serif;
     --content: 720px;
@@ -44,6 +44,7 @@
     border-bottom: 2px solid transparent; transition: color .15s, border-color .15s;
   }
   .cat-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .cat-nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
   /* 준비중 랜딩 */
   .coming { max-width: 600px; margin: 0 auto; padding: 96px 24px; text-align: center; }
@@ -54,7 +55,7 @@
 
   /* 홈 히어로 */
   .hero {
-    flex-direction: column; gap: 8px; padding: 72px 24px 56px; border-bottom: 2px solid var(--ink);
+    flex-direction: column; gap: 8px; padding: 72px 24px 56px; border-bottom: 3px solid var(--accent);
   }
   .hero .brand-big {
     font-family: var(--font-serif); font-weight: 900;
@@ -68,16 +69,16 @@
   /* 공용 카테고리 배지 */
   .cat {
     display: inline-block; font-size: 0.72rem; font-weight: 700; color: var(--accent);
-    background: var(--accent-soft); padding: 3px 11px; border-radius: 6px;
+    background: #ebede9; padding: 3px 11px; border-radius: 6px;
   }
   .cat-sm { font-size: 0.68rem; padding: 2px 9px; }
 
   /* 피처(최신) 카드 */
   .feature-card {
-    display: block; background: var(--paper-card);
-    border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    display: block; background: #f5faf7;
+    border: 1px solid var(--line); border-left: 4px solid var(--accent);
     border-radius: 12px; padding: 34px 34px 30px;
-    transition: border-color .18s ease;
+    transition: border-color .18s ease, background .18s ease;
   }
   .feature-card:hover { border-color: var(--accent); }
   .feature-card .cat { margin-bottom: 18px; }
@@ -105,6 +106,19 @@
   .pr-head time { font-size: 0.8rem; color: var(--ink-soft); }
   .post-row h3 { font-size: 1.15rem; font-weight: 800; line-height: 1.4; margin: 0 0 6px; letter-spacing: -0.005em; }
   .post-row p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.55; margin: 0; }
+
+  /* 다른 게시판(과저씨의 메모·웹툰) 새 글 미리보기 */
+  .other-boards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 16px; }
+  .board-card {
+    display: block; background: var(--paper-card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 22px 24px; transition: border-color .18s ease;
+  }
+  .board-card:hover { border-color: var(--accent); }
+  .board-label { display: inline-block; font-size: 0.78rem; font-weight: 700; color: var(--accent); margin-bottom: 12px; }
+  .board-card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.4; margin: 0 0 6px; }
+  .board-card p { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.5; margin: 0; }
+  .board-soon { opacity: 0.72; }
+  @media (max-width: 560px) { .other-boards { grid-template-columns: 1fr; } }
 
   /* 기사 페이지 — named grid: 본문 컬럼 + 풀블리드 여지 */
   .article-grid {
