@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&display=swap">
 <style>
   :root {
-    --ink: #23201c;
-    --ink-soft: #6b6258;
-    --paper: #faf7f0;
-    --paper-card: #ffffff;
-    --accent: #b3542b;
-    --accent-soft: #f0e2d6;
-    --line: #e6dccb;
+    --ink: #1e2620;
+    --ink-soft: #5a655d;
+    --paper: #f2f2ec;
+    --paper-card: #fbfbf7;
+    --accent: #2f6b4d;
+    --accent-soft: #dcebe1;
+    --line: #e2e5db;
     --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
     --font-serif: "Noto Serif KR", serif;
     --content: 720px;
@@ -62,21 +62,49 @@
   }
   .hero .tagline { color: var(--ink-soft); font-size: 1.05rem; margin: 0; }
 
-  /* 목차 그리드 */
-  .toc-wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px 100px; }
-  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
-  .toc-card {
-    display: block; background: var(--paper-card); border: 1px solid var(--line);
-    border-radius: 14px; padding: 26px 26px 24px; transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .toc-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(60,40,20,.08); }
-  .toc-card .cat {
+  /* ── 홈: 매거진 목차 (피처 + 리스트) ── */
+  .toc-wrap { max-width: 780px; margin: 0 auto; padding: 44px 24px 100px; }
+
+  /* 공용 카테고리 배지 */
+  .cat {
     display: inline-block; font-size: 0.72rem; font-weight: 700; color: var(--accent);
-    background: var(--accent-soft); padding: 3px 11px; border-radius: 999px; margin-bottom: 14px;
+    background: var(--accent-soft); padding: 3px 11px; border-radius: 6px;
   }
-  .toc-card h2 { font-size: 1.28rem; font-weight: 800; line-height: 1.4; margin: 0 0 10px; }
-  .toc-card p { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 16px; }
-  .toc-card time { font-size: 0.82rem; color: var(--ink-soft); }
+  .cat-sm { font-size: 0.68rem; padding: 2px 9px; }
+
+  /* 피처(최신) 카드 */
+  .feature-card {
+    display: block; background: var(--paper-card);
+    border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: 12px; padding: 34px 34px 30px;
+    transition: border-color .18s ease;
+  }
+  .feature-card:hover { border-color: var(--accent); }
+  .feature-card .cat { margin-bottom: 18px; }
+  .feature-card h2 {
+    font-family: var(--font-serif); font-weight: 900;
+    font-size: clamp(1.55rem, 1.1rem + 1.8vw, 2.15rem); line-height: 1.3;
+    letter-spacing: -0.01em; margin: 0 0 14px;
+  }
+  .feature-card .fc-deck { color: var(--ink-soft); font-size: 1.08rem; line-height: 1.6; margin: 0 0 18px; }
+  .feature-card .fc-meta { font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+
+  /* 나머지 기사 리스트 */
+  .post-list { display: flex; flex-direction: column; margin-top: 40px; }
+  .post-list::before {
+    content: "지난 기사"; display: block;
+    font-size: 0.8rem; font-weight: 700; color: var(--ink-soft);
+    padding-bottom: 12px; border-bottom: 2px solid var(--ink);
+  }
+  .post-row {
+    display: block; padding: 22px 4px; border-bottom: 1px solid var(--line);
+    transition: background .15s ease, padding-left .15s ease;
+  }
+  .post-row:hover { background: var(--paper-card); padding-left: 12px; }
+  .pr-head { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+  .pr-head time { font-size: 0.8rem; color: var(--ink-soft); }
+  .post-row h3 { font-size: 1.15rem; font-weight: 800; line-height: 1.4; margin: 0 0 6px; letter-spacing: -0.005em; }
+  .post-row p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.55; margin: 0; }
 
   /* 기사 페이지 — named grid: 본문 컬럼 + 풀블리드 여지 */
   .article-grid {
@@ -104,13 +132,13 @@
   }
   .article-head time { font-size: 0.85rem; color: var(--ink-soft); }
 
-  .article-body { margin-top: 20px; font-size: 1.075rem; }
+  .article-body { margin-top: 24px; font-size: 1.08rem; line-height: 1.8; }
   .article-body h2 {
-    font-size: 1.25rem; font-weight: 800; margin: 44px 0 4px;
-    padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: 1.4rem; font-weight: 800; margin: 56px 0 8px;
+    padding-top: 28px; border-top: 1px solid var(--line); letter-spacing: -0.005em;
   }
   .article-body h2:first-child { border-top: none; padding-top: 0; margin-top: 8px; }
-  .article-body p { margin: 14px 0; }
+  .article-body p { margin: 16px 0; }
 
   /* 푸터 */
   .site-foot {
@@ -127,10 +155,10 @@
   }
   /* 다크 설명박스 콜아웃 (Quanta식 용어 풀이) */
   .callout {
-    background: #2a2520; color: #f0e8dd; font-size: 0.96rem; line-height: 1.65;
+    background: #1f2c25; color: #e7efe8; font-size: 0.96rem; line-height: 1.65;
     padding: 16px 20px; border-radius: 12px; margin: 24px 0;
   }
-  .callout strong { color: #e0a06a; }
+  .callout strong { color: #8fc7a6; }
   /* 이 날의 다른 소식 — 뉴스 리스트 */
   .article-body ul { list-style: none; padding: 0; margin: 10px 0 20px; }
   .article-body li {
@@ -149,7 +177,7 @@
   .source-link {
     display: inline-block; margin-top: 28px; font-size: 0.92rem; font-weight: 600;
     color: var(--accent); background: var(--accent-soft);
-    padding: 10px 18px; border-radius: 10px; transition: background .15s;
+    padding: 10px 18px; border-radius: 8px; transition: background .15s;
   }
   .source-link:hover { background: #e6ccb8; }
   /* 화자 서명 (한국 큐레이션식 톤) */
@@ -158,7 +186,8 @@
     font-size: 0.95rem; color: var(--accent); font-weight: 600;
   }
   @media (max-width: 560px) {
-    .toc-grid { grid-template-columns: 1fr; gap: 20px; }
+    .toc-wrap { padding: 32px 18px 80px; }
+    .feature-card { padding: 26px 22px 24px; }
   }
   /* 기사 상단 메타 (날짜 + 원문 링크) — 요약 근처로 */
   .head-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
@@ -181,8 +210,8 @@
 
   /* 이 날의 다른 소식 — 메인과 구분되는 별개 코너 (배경 박스 + 미니 카드) */
   .other-news {
-    background: #f1ebdf; border: 1px solid var(--line); border-radius: 16px;
-    padding: 22px 24px 18px; margin: 52px 0 12px;
+    background: #e9ede3; border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 24px 18px; margin: 56px 0 12px;
   }
   .other-news h2 { border-top: none; padding-top: 0; margin-top: 0; font-size: 1.15rem; }
   .other-news p > strong:only-child { color: var(--ink); font-size: 0.98rem; margin: 16px 0 4px; }

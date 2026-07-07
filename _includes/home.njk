@@ -17,19 +17,34 @@
 </header>
 {% include "_nav.njk" %}
 
+{%- set posts = collections.post | reverse %}
+{%- set featured = posts[0] %}
 <main class="toc-wrap">
-  <div class="toc-grid">
-    {%- for post in collections.post | reverse %}
-    <a class="toc-card" href="{{ post.url }}">
-      <div class="card-top">
-        <span class="cat">{{ post.data.category }}</span>
+  {%- if featured %}
+  <a class="feature-card" href="{{ featured.url }}">
+    <span class="cat">{{ featured.data.category }}</span>
+    <h2>{{ featured.data.title }}</h2>
+    <p class="fc-deck">{{ featured.data.deck }}</p>
+    <span class="fc-meta">{{ featured.data.displayDate }} · 가장 최근 기사</span>
+  </a>
+  {%- endif %}
+
+  {%- if posts.length > 1 %}
+  <div class="post-list">
+    {%- for post in posts %}
+    {%- if not loop.first %}
+    <a class="post-row" href="{{ post.url }}">
+      <div class="pr-head">
+        <span class="cat cat-sm">{{ post.data.category }}</span>
         <time>{{ post.data.displayDate }}</time>
       </div>
-      <h2>{{ post.data.title }}</h2>
+      <h3>{{ post.data.title }}</h3>
       <p>{{ post.data.deck }}</p>
     </a>
+    {%- endif %}
     {%- endfor %}
   </div>
+  {%- endif %}
 </main>
 
 <footer class="site-foot">
