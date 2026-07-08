@@ -6,7 +6,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("siteName", "과학 한 모금");
   eleventyConfig.addGlobalData(
     "siteDescription",
-    "매일의 과학을 한 모금씩. 오늘의 과학 뉴스를 쉽고 깊게 풀어드립니다."
+    "과학을 한 모금씩 쉽게 알아봐요. 오늘의 과학 뉴스를 깊이 있게 풀어드립니다."
   );
 
   // RSS의 pubDate는 RFC-822 형식이어야 함 (예: "Mon, 07 Jul 2026 00:00:00 GMT").
