@@ -9,6 +9,12 @@ module.exports = function (eleventyConfig) {
     "매일의 과학을 한 모금씩. 오늘의 과학 뉴스를 쉽고 깊게 풀어드립니다."
   );
 
+  // RSS의 pubDate는 RFC-822 형식이어야 함 (예: "Mon, 07 Jul 2026 00:00:00 GMT").
+  // 플러그인 없이 JS Date.toUTCString()으로 처리.
+  eleventyConfig.addFilter("rfc822", function (d) {
+    return new Date(d).toUTCString();
+  });
+
   // 본문의 어려운 용어(콜아웃에 설명된 것)에 형광펜(mark) — 아래 설명 박스와 시각 매치
   eleventyConfig.addTransform("highlightTerms", function (content) {
     const outputPath = this.page.outputPath || "";
