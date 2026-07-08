@@ -9,6 +9,15 @@ module.exports = function (eleventyConfig) {
     "과학을 한 모금씩 쉽게 알아봐요. 오늘의 과학 뉴스를 깊이 있게 풀어드립니다."
   );
 
+  // RSS·sitemap용 통합 컬렉션 = 뉴스레터(post) + 기사 돋보기(deepdive), 날짜 내림차순.
+  // 돋보기도 독자 발견 경로(RSS·검색)에 실려야 "화수금토" 리듬이 구독앱에 보인다.
+  eleventyConfig.addCollection("feed", function (api) {
+    return api
+      .getFilteredByTag("post")
+      .concat(api.getFilteredByTag("deepdive"))
+      .sort((a, b) => b.date - a.date);
+  });
+
   // RSS의 pubDate는 RFC-822 형식이어야 함 (예: "Mon, 07 Jul 2026 00:00:00 GMT").
   // 플러그인 없이 JS Date.toUTCString()으로 처리.
   eleventyConfig.addFilter("rfc822", function (d) {

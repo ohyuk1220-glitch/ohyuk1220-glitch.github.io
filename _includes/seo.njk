@@ -1,3 +1,4 @@
+{% if noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <link rel="canonical" href="{{ siteUrl }}{{ page.url }}">
 <meta property="og:type" content="{{ ogType or 'article' }}">
 <meta property="og:title" content="{{ title or siteName }}">

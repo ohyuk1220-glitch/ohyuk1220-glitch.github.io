@@ -29,7 +29,7 @@
   <div class="article-body">
     {{ content | safe }}
   </div>
-  {% if "/deepdive/" not in page.url %}<p class="byline-sign">☕ 과저씨가 한 모금으로 풀어드렸어요</p>{% endif %}
+  {% if "/deepdive/" not in page.url and "/preview/" not in page.url %}<p class="byline-sign">☕ 과저씨가 한 모금으로 풀어드렸어요</p>{% endif %}
 </main>
 
 <footer class="site-foot">

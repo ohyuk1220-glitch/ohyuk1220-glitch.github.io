@@ -10,7 +10,7 @@ eleventyExcludeFromCollections: true
     <atom:link href="{{ siteUrl }}/feed.xml" rel="self" type="application/rss+xml" />
     <description>{{ siteDescription }}</description>
     <language>ko</language>
-    {%- for post in collections.post | reverse %}
+    {%- for post in collections.feed %}
     {%- if loop.index <= 20 %}
     <item>
       <title>{{ post.data.title | escape }}</title>

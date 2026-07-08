@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /preview/
 
 Sitemap: https://ohyuk1220-glitch.github.io/sitemap.xml
